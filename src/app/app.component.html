@@ -1,4 +1,14 @@
 
-<h1 style="background-color:LightGray;">Coverage</h1>
-<hr>
-<app-companies></app-companies>
+<h1>
+  <mat-toolbar  color="primary" >
+    <span>Company Analyst</span>
+  </mat-toolbar>
+</h1>
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle value="bold">Companies</mat-button-toggle>
+  <mat-button-toggle value="italic">Analysts</mat-button-toggle>
+</mat-button-toggle-group>
+
+
+<app-analysts></app-analysts>
+

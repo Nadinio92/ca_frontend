@@ -1,10 +1,16 @@
-<button mat-raised-button>Add Company</button>
+
+<button mat-raised-button>Add Analyst</button>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <ng-container matColumnDef="companyName">
-    <th mat-header-cell *matHeaderCellDef> Company Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+  <ng-container matColumnDef="analystName">
+    <th mat-header-cell *matHeaderCellDef> Analyst </th>
+    <td mat-cell *matCellDef="let element"> {{element.analystName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="companies">
+    <th mat-header-cell *matHeaderCellDef> Companies </th>
+    <td mat-cell *matCellDef="let element"> {{element.companies}} </td>
   </ng-container>
 
   <ng-container matColumnDef="marketCap">
@@ -15,11 +21,6 @@
   <ng-container matColumnDef="sector">
     <th mat-header-cell *matHeaderCellDef> Sector </th>
     <td mat-cell *matCellDef="let element"> {{element.sector}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="analyst">
-    <th mat-header-cell *matHeaderCellDef> Analyst </th>
-    <td mat-cell *matCellDef="let element"> {{element.analyst}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
