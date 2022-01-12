@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {TableCompany} from "./companies/companies.component";
-import {TableAnalysts} from "./analysts/analysts.component"; // CLI imports router
+import {CompaniesComponent} from "./components/companies/companies.component";
+import {AnalystsComponent} from "./components/analysts/analysts.component"; // CLI imports router
 
 
 
 
 const routes: Routes = [
-  { path: 'analysts', component: TableAnalysts },
-  { path: 'companies', component: TableCompany },
+  { path: 'analysts', component: AnalystsComponent },
+  { path: 'companies', component: CompaniesComponent },
   { path: '', redirectTo: '/companies', pathMatch: 'full' },
 
 

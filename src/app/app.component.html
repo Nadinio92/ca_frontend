@@ -4,9 +4,11 @@
     <span>Company Analyst</span>
   </mat-toolbar>
 </h1>
+
 <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-  <mat-button-toggle routerLink="/analysts" routerLinkActive="active"  value="bold">Companies</mat-button-toggle>
-  <mat-button-toggle routerLink="/companies" routerLinkActive="active" value="italic">Analysts</mat-button-toggle>
+  <mat-button-toggle routerLink="/companies" routerLinkActive="active" value="italic">Companies</mat-button-toggle>
+  <mat-button-toggle routerLink="/analysts" routerLinkActive="active"  value="bold">Analysts</mat-button-toggle>
+
 </mat-button-toggle-group>
 
 <router-outlet></router-outlet>
