@@ -1,5 +1,5 @@
 export interface Analyst {
-    analystName: string;
+    name: string;
     companies: string [];
     marketCap: number;
     sector: string;

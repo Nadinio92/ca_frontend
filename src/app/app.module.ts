@@ -8,11 +8,12 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTableModule} from "@angular/material/table";
 import {AnalystsComponent} from './components/analysts/analysts.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
-import {CompanyDialogComponent } from './components/company-dialog/company-dialog.component';
 import {CompanyDialogContentComponent} from "./components/company-dialog-content/company-dialog-content.component";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -20,7 +21,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     AppComponent,
     CompaniesComponent,
     AnalystsComponent,
-    CompanyDialogComponent,
     CompanyDialogContentComponent,
 
   ],
@@ -33,7 +33,10 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatTableModule,
     FormsModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Company} from "../../model/company";
 import {CompanyService} from "../../services/company.service";
+import {MatDialog} from "@angular/material/dialog";
+import {CompanyDialogContentComponent} from "../company-dialog-content/company-dialog-content.component";
 
 
 @Component({
@@ -13,8 +15,17 @@ export class CompaniesComponent {
   dataSource: Company[] = [];
 
 
-  constructor(private companyService : CompanyService) {
+  constructor(private companyService: CompanyService, protected dialog: MatDialog) {
     this.dataSource = companyService.getCompanies();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CompanyDialogContentComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+
   }
 }
 

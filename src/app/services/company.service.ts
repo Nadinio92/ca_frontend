@@ -6,14 +6,14 @@ import {Company} from "../model/company";
 })
 export class CompanyService {
 
-
   constructor() { }
 
   public getCompanies():Company[] {
     return [
-      {companyName: 'Deutsche Bank', marketCap: 29000000000, sector: 'IT' , analyst: 'Andrew Win'},
+      {companyName: 'Deutsche Bank', marketCap: 29000000000, sector: 'IT' , analysts: ['Andrew Win', 'Georgi Bin']},
     ];
   }
+
 
 
 }
