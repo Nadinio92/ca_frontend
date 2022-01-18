@@ -14,6 +14,7 @@ import {CompanyDialogContentComponent} from "./components/company-dialog-content
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { AnalystDialogContentComponent } from './components/analyst-dialog-content/analyst-dialog-content.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MatInputModule} from "@angular/material/input";
     CompaniesComponent,
     AnalystsComponent,
     CompanyDialogContentComponent,
+    AnalystDialogContentComponent,
 
   ],
   imports: [

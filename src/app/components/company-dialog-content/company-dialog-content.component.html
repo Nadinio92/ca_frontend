@@ -7,11 +7,11 @@
     <input matInput formControlName="companyName">
   </mat-form-field>
 
-
   <mat-form-field appearance="fill">
     <mat-label>Analysts</mat-label>
     <select matNativeControl formControlName='analysts'>
-      <option *ngFor="let analyst of listAnalysts" [value]="analyst.name">{{analyst.name}}</option>
+      <option *ngFor="let analyst of listAnalysts"
+              [value]="analyst.name">{{analyst.name}}</option>
     </select>
   </mat-form-field>
 
@@ -22,17 +22,15 @@
     </select>
   </mat-form-field>
 
-
   <mat-form-field appearance="fill">
     <mat-label>Market Cup</mat-label>
     <input matInput formControlName="marketCap">
   </mat-form-field>
-
 
 </div>
 
 <mat-dialog-actions align="end">
 
   <button mat-button [mat-dialog-close]="false">Cancel</button>
-  <button mat-button [mat-dialog-close]="companyFormGroup.getRawValue()">Save</button>
+  <button mat-button (click)="onSave()">Save</button>
 </mat-dialog-actions>

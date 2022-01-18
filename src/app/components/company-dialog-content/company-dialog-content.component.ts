@@ -4,6 +4,7 @@ import {CompanyService} from "../../services/company.service";
 import {AnalystService} from "../../services/analyst.service";
 import {Company} from "../../model/company";
 import {Analyst} from "../../model/analyst";
+import {MatDialogRef} from "@angular/material/dialog";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Analyst} from "../../model/analyst";
   styleUrls: ['./company-dialog-content.component.css']
 })
 
-export class CompanyDialogContentComponent implements OnInit{
+export class CompanyDialogContentComponent implements OnInit {
 
   companyFormGroup: FormGroup = new FormGroup({
     analysts: new FormControl(''),
@@ -24,22 +25,15 @@ export class CompanyDialogContentComponent implements OnInit{
 
   listAnalysts: Analyst[] = [];
 
-  constructor(private analystService:AnalystService) {
-    this.listAnalysts = analystService.getAnalysts();
-
-
-  }
+  constructor(private analystService:AnalystService,
+              private dialogRef: MatDialogRef<CompanyDialogContentComponent>) {}
 
   ngOnInit() {
-
-
+    this.listAnalysts = this.analystService.getAnalysts();
   }
 
-
-
-
-
-
-
+  onSave(){
+     this.dialogRef.close(this.companyFormGroup.getRawValue());
+  }
 }
 

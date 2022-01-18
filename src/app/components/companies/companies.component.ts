@@ -22,8 +22,11 @@ export class CompaniesComponent {
   openDialog() {
     const dialogRef = this.dialog.open(CompanyDialogContentComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe(company => {
+      if (company) {
+        this.companyService.addCompany(company);
+        this.dataSource = [...this.companyService.getCompanies()];
+      }
     });
 
   }
