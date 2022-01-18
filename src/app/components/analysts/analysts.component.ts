@@ -3,6 +3,7 @@ import {Analyst} from "../../model/analyst";
 import {AnalystService} from "../../services/analyst.service";
 import {CompanyDialogContentComponent} from "../company-dialog-content/company-dialog-content.component";
 import {MatDialog} from "@angular/material/dialog";
+import {AnalystDialogContentComponent} from "../analyst-dialog-content/analyst-dialog-content.component";
 
 
 
@@ -13,15 +14,22 @@ import {MatDialog} from "@angular/material/dialog";
 })
 
 export class AnalystsComponent {
-  displayedColumns: string[] = ['analystName','companies','marketCap','sector'];
+  displayedColumns: string[] = ['analystName','marketCap','sector','companies'];
   dataSource: Analyst[] = [];
 
-  constructor(private AnalystService: AnalystService, protected dialog: MatDialog) {
-    this.dataSource = AnalystService.getAnalysts();
+  constructor(private analystService: AnalystService, protected dialog: MatDialog) {
+    this.dataSource = analystService.getAnalysts();
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(CompanyDialogContentComponent);
+    const dialogRef = this.dialog.open(AnalystDialogContentComponent);
+
+    dialogRef.afterClosed().subscribe(analyst => {
+      if (analyst) {
+        this.analystService.addAnalyst(analyst);
+        this.dataSource = [...this.analystService.getAnalysts()];
+      }
+    });
 
 
   }

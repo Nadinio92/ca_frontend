@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {Company} from "../../model/company";
+import {CompanyService} from "../../services/company.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-analyst-dialog-content',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnalystDialogContentComponent implements OnInit {
 
-  constructor() { }
+  analystFormGroup: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    companies: new FormControl(''),
+    marketCap: new FormControl(''),
+    sector: new FormControl('')
+  });
 
-  ngOnInit(): void {
+  listCompanies: Company[] = [];
+
+  constructor(private companyService:CompanyService,
+              private dialogRef: MatDialogRef<AnalystDialogContentComponent>) {}
+
+  ngOnInit() {
+    this.listCompanies = this.companyService.getCompanies();
   }
+
+    onSave(){
+      this.dialogRef.close(this.analystFormGroup.getRawValue());
+    }
 
 }

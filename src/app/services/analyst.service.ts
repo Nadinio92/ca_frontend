@@ -7,9 +7,11 @@ import {Analyst} from "../model/analyst";
 export class AnalystService {
 
   private data: Analyst[] = [
-    {name: 'Georgi', companies:['Med Life','Med Farm'], marketCap: 3000000, sector: 'Medicine'},
-    {name: 'Andrew', companies:['FaceBook','Google'], marketCap: 6000000, sector: 'IT'},
-    {name: 'Mike', companies:['TiTulFinance','IQ Credit'], marketCap: 30000000, sector: 'Financial'}
+    {name: 'Georgi', companies:['Med Life','Med Farm'], marketCap: 9800000, sector: 'Health Care'},
+    {name: 'Andrew', companies:['FaceBook','Google'], marketCap: 6000000, sector: 'Technology'},
+    {name: 'Mike', companies:['TiTulFinance','IQ Credit'], marketCap: 30000000, sector: 'Financials'},
+    {name: 'Natasha', companies:['Avito'], marketCap: 11000000, sector: 'Consumer Services'}
+
   ]
 
   constructor() { }

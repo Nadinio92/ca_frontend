@@ -16,8 +16,8 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class CompanyDialogContentComponent implements OnInit {
 
   companyFormGroup: FormGroup = new FormGroup({
+    name: new FormControl(''),
     analysts: new FormControl(''),
-    companyName: new FormControl(''),
     marketCap: new FormControl(''),
     sector: new FormControl('')
   });

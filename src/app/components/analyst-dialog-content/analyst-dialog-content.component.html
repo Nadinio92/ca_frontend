@@ -1,1 +1,36 @@
-<p>analyst-dialog-content works!</p>
+<h2 mat-dialog-title>Adding new Analyst</h2>
+
+<div [formGroup]="analystFormGroup">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Analyst name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Sector</mat-label>
+    <select matNativeControl formControlName='sector'>
+      <option *ngFor="let company of listCompanies" [value]="company.sector">{{company.sector}}</option>
+    </select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Market Cup</mat-label>
+    <input matInput formControlName="marketCap">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Companies</mat-label>
+    <select matNativeControl formControlName='companies'>
+      <option *ngFor="let company of listCompanies"
+              [value]="company.name">{{company.name}}</option>
+    </select>
+  </mat-form-field>
+
+</div>
+
+<mat-dialog-actions align="end">
+
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button (click)="onSave()">Save</button>
+</mat-dialog-actions>

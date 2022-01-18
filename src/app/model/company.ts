@@ -1,6 +1,7 @@
 export interface Company {
-    companyName: string;
+    name: string;
+    analysts:string [];
     marketCap: number;
     sector: string;
-    analysts:string [];
+
 }

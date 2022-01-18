@@ -7,10 +7,10 @@ import {Company} from "../model/company";
 export class CompanyService {
 
   private data:Company[] = [
-    {companyName: 'Deutsche Bank', marketCap: 29000000000, sector: 'IT' , analysts: ['Andrew Win', 'Georgi Bin']},
-    {companyName: 'Avito', marketCap: 29000000000, sector: 'IT' , analysts: ['Andrew Win', 'Georgi Bin']},
-    {companyName: 'FunBox', marketCap: 29000000000, sector: 'IT' , analysts: ['Andrew Win', 'Georgi Bin']},
-    {companyName: 'LAbCorp', marketCap: 29000000000, sector: 'Medicine' , analysts: ['Andrew Win', 'Georgi Bin']},
+    {name: 'Deutsche Bank', marketCap: 70000000000, sector: 'IT' , analysts: ['Tomas', 'Georgi']},
+    {name: 'Avito', marketCap: 800000000, sector: 'Consumer Services,' , analysts: ['Dillon', 'Natasha']},
+    {name: 'TiTulFinance', marketCap: 71000000000, sector: 'Financial' , analysts: ['Andrew', 'Mike']},
+    {name: 'LAbCorp', marketCap: 11000000000, sector: 'Health Care' , analysts: ['Mark', 'Georgi']},
 
   ];
 
