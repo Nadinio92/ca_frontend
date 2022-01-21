@@ -1,27 +1,28 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Company} from "../model/company";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
 
-  private data:Company[] = [
-    {name: 'Deutsche Bank', marketCap: 70000000000, sector: 'IT' , analysts: ['Tomas', 'Georgi']},
-    {name: 'Avito', marketCap: 800000000, sector: 'Consumer Services,' , analysts: ['Dillon', 'Natasha']},
-    {name: 'TiTulFinance', marketCap: 71000000000, sector: 'Financial' , analysts: ['Andrew', 'Mike']},
-    {name: 'LAbCorp', marketCap: 11000000000, sector: 'Health Care' , analysts: ['Mark', 'Georgi']},
+  baseUrl = 'http://localhost:8080/api';
 
-  ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public getCompanies():Company[] {
-    return this.data;
+  public getCompanies(): Observable<Company[]> {
+    return this.http.get<Company[]>(`${this.baseUrl}/companies`);
   }
 
-  public addCompany(c:Company){
-    this.data.push(c);
+  public addCompany(c:Company) : Observable<any> {
+    let base_url = `${this.baseUrl}/add-company`;
+    return this.http.post(base_url, c)
+
+
+
   }
 
 

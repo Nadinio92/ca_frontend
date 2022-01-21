@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {CompanyService} from "../../services/company.service";
 import {AnalystService} from "../../services/analyst.service";
-import {Company} from "../../model/company";
 import {Analyst} from "../../model/analyst";
 import {MatDialogRef} from "@angular/material/dialog";
+import {Company} from "../../model/company";
 
 
 @Component({
@@ -22,18 +21,25 @@ export class CompanyDialogContentComponent implements OnInit {
     sector: new FormControl('')
   });
 
-
   listAnalysts: Analyst[] = [];
 
   constructor(private analystService:AnalystService,
               private dialogRef: MatDialogRef<CompanyDialogContentComponent>) {}
 
   ngOnInit() {
-    this.listAnalysts = this.analystService.getAnalysts();
+    this.analystService.getAnalysts().subscribe(analysts => {
+      this.listAnalysts = analysts
+    });
   }
 
   onSave(){
-     this.dialogRef.close(this.companyFormGroup.getRawValue());
+    const dialogResult = this.companyFormGroup.getRawValue();
+     this.dialogRef.close(<Company>{
+       name: dialogResult.name,
+       sector: dialogResult.sector,
+       analysts: [dialogResult.analysts],
+       marketCap: dialogResult.marketCap
+     });
   }
 }
 

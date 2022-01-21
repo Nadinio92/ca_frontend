@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Company} from "../../model/company";
 import {CompanyService} from "../../services/company.service";
 import {MatDialogRef} from "@angular/material/dialog";
+import {Analyst} from "../../model/analyst";
 
 @Component({
   selector: 'app-analyst-dialog-content',
@@ -24,11 +25,20 @@ export class AnalystDialogContentComponent implements OnInit {
               private dialogRef: MatDialogRef<AnalystDialogContentComponent>) {}
 
   ngOnInit() {
-    this.listCompanies = this.companyService.getCompanies();
-  }
+    this.companyService.getCompanies().subscribe(companies=>{
+      this.listCompanies = companies;
+    })
 
+
+  }
     onSave(){
-      this.dialogRef.close(this.analystFormGroup.getRawValue());
+      const dialogResult = this.analystFormGroup.getRawValue();
+      this.dialogRef.close(<Analyst>{
+        name: dialogResult.name,
+        sector: dialogResult.sector,
+        companies: [dialogResult.companies],
+        marketCap: dialogResult.marketCap
+      })
     }
 
 }

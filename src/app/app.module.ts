@@ -14,7 +14,9 @@ import {CompanyDialogContentComponent} from "./components/company-dialog-content
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import { AnalystDialogContentComponent } from './components/analyst-dialog-content/analyst-dialog-content.component';
+import {AnalystDialogContentComponent } from './components/analyst-dialog-content/analyst-dialog-content.component';
+import {HttpClientModule} from "@angular/common/http";
+import {StyleDirective} from "./directives/style.directive";
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { AnalystDialogContentComponent } from './components/analyst-dialog-conte
     AnalystsComponent,
     CompanyDialogContentComponent,
     AnalystDialogContentComponent,
+    StyleDirective
 
   ],
   imports: [
@@ -38,7 +41,9 @@ import { AnalystDialogContentComponent } from './components/analyst-dialog-conte
     MatDialogModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

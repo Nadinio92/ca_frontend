@@ -1,26 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CompaniesComponent} from "./components/companies/companies.component";
-import {AnalystsComponent} from "./components/analysts/analysts.component"; // CLI imports router
+import {AnalystsComponent} from "./components/analysts/analysts.component";
 
 
 
 
-const routes: Routes = [
-  { path: 'analysts', component: AnalystsComponent },
-  { path: 'companies', component: CompaniesComponent },
-  { path: '', redirectTo: '/companies', pathMatch: 'full' },
+  const routes: Routes = [
+    { path: 'analysts', component: AnalystsComponent },
+    { path: 'companies', component: CompaniesComponent },
+    { path: '', redirectTo: '/companies', pathMatch: 'full' },
 
+  ];
 
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
 
-]; // sets up routes constant where you define your routes
+  export class AppRoutingModule {
 
-// configures NgModule imports and exports
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {
-
-}
+  }
 
