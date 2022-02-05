@@ -18,7 +18,8 @@
   <mat-form-field appearance="fill">
     <mat-label>Sector</mat-label>
     <select matNativeControl formControlName='sector'>
-      <option *ngFor="let analyst of listAnalysts" [value]="analyst.sector">{{analyst.sector}}</option>
+      <option *ngFor="let sector of listSectors"
+              [value]="sector.name">{{sector.name}}</option>
     </select>
   </mat-form-field>
 

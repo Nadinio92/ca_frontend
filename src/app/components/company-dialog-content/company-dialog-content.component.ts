@@ -4,6 +4,8 @@ import {AnalystService} from "../../services/analyst.service";
 import {Analyst} from "../../model/analyst";
 import {MatDialogRef} from "@angular/material/dialog";
 import {Company} from "../../model/company";
+import {Sector} from "../../model/sector";
+import {SectorService} from "../../services/sector.service";
 
 
 @Component({
@@ -22,13 +24,18 @@ export class CompanyDialogContentComponent implements OnInit {
   });
 
   listAnalysts: Analyst[] = [];
+  listSectors: Sector[] = [];
 
   constructor(private analystService:AnalystService,
+              private sectorService:SectorService,
               private dialogRef: MatDialogRef<CompanyDialogContentComponent>) {}
 
   ngOnInit() {
     this.analystService.getAnalysts().subscribe(analysts => {
       this.listAnalysts = analysts
+    });
+    this.sectorService.getSectors().subscribe(sectors => {
+      this.listSectors = sectors
     });
   }
 
