@@ -3,21 +3,8 @@
 <div [formGroup]="analystFormGroup">
 
   <mat-form-field appearance="fill">
-    <mat-label>Analyst name</mat-label>
+    <mat-label>Analyst Name</mat-label>
     <input matInput formControlName="name">
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Sector</mat-label>
-    <select matNativeControl formControlName='sector'>
-      <option *ngFor="let company of listCompanies"
-              [value]="company.sector">{{company.sector}}</option>
-    </select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Market Cup</mat-label>
-    <input matInput formControlName="marketCap">
   </mat-form-field>
 
   <mat-form-field appearance="fill">

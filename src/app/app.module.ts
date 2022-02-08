@@ -17,6 +17,7 @@ import {MatInputModule} from "@angular/material/input";
 import {AnalystDialogContentComponent } from './components/analyst-dialog-content/analyst-dialog-content.component';
 import {HttpClientModule} from "@angular/common/http";
 import {StyleDirective} from "./directives/style.directive";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {StyleDirective} from "./directives/style.directive";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
 
   ],
   providers: [],

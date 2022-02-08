@@ -11,7 +11,7 @@ import {AnalystDialogContentComponent} from "../analyst-dialog-content/analyst-d
 })
 
 export class AnalystsComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['analystName','marketCap','sector','companies'];
+  displayedColumns: string[] = ['analystName','companies'];
   dataSource: Analyst[] = [];
 
   constructor(private analystService: AnalystService, protected dialog: MatDialog) {}
@@ -22,8 +22,8 @@ export class AnalystsComponent implements OnInit, OnDestroy {
     this.loadAnalysts();
     }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AnalystDialogContentComponent);
+  onAddAnalyst() {
+    const dialogRef = this.dialog.open<AnalystDialogContentComponent, null, Analyst>(AnalystDialogContentComponent);
 
     dialogRef.afterClosed().subscribe(analyst => {
       if (analyst) {

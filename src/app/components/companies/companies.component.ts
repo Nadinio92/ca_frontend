@@ -11,7 +11,7 @@ import {CompanyDialogContentComponent} from "../company-dialog-content/company-d
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['companyName', 'marketCap', 'sector', 'analyst'];
+  displayedColumns: string[] = ['companyName', 'marketCap', 'sector', 'analyst', 'buttons'];
   dataSource: Company[] = [];
 
   constructor(private companyService: CompanyService, protected dialog: MatDialog) {

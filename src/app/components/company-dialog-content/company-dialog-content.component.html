@@ -7,19 +7,28 @@
     <input matInput formControlName="name">
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Analysts</mat-label>
-    <select matNativeControl formControlName='analysts'>
-      <option *ngFor="let analyst of listAnalysts"
-              [value]="analyst.name">{{analyst.name}}</option>
-    </select>
-  </mat-form-field>
+<!--  <mat-form-field appearance="fill">-->
+<!--    <mat-label>Analysts</mat-label>-->
+<!--    <select matNativeControl formControlName='analysts'>-->
+<!--      <option *ngFor="let analyst of listAnalysts"-->
+<!--              [value]="analyst.id">{{analyst.name}}</option>-->
+<!--    </select>-->
+<!--  </mat-form-field>-->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Analysts</mat-label>
+      <select matNativeControl formControlName='analysts'>
+        <option *ngFor="let analyst of listAnalysts"
+                [value]="analyst.id">{{analyst.name}}</option>
+      </select>
+    </mat-form-field>
+
 
   <mat-form-field appearance="fill">
     <mat-label>Sector</mat-label>
     <select matNativeControl formControlName='sector'>
       <option *ngFor="let sector of listSectors"
-              [value]="sector.name">{{sector.name}}</option>
+              [value]="sector.id">{{sector.name}}</option>
     </select>
   </mat-form-field>
 

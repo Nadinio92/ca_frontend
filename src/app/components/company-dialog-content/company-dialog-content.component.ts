@@ -6,6 +6,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {Company} from "../../model/company";
 import {Sector} from "../../model/sector";
 import {SectorService} from "../../services/sector.service";
+import {CompanyModify} from "../../model/company-modify";
 
 
 @Component({
@@ -41,7 +42,7 @@ export class CompanyDialogContentComponent implements OnInit {
 
   onSave(){
     const dialogResult = this.companyFormGroup.getRawValue();
-     this.dialogRef.close(<Company>{
+     this.dialogRef.close(<CompanyModify>{
        name: dialogResult.name,
        sector: dialogResult.sector,
        analysts: [dialogResult.analysts],
