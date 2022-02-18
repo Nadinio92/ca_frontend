@@ -1,7 +1,7 @@
 export interface CompanyModify {
   id?: number;
   name: string;
-  analysts:number [];
+  analysts: number [];
   marketCap: number;
   sector: number;
 }

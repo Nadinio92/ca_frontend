@@ -7,33 +7,40 @@
     <input matInput formControlName="name">
   </mat-form-field>
 
-<!--  <mat-form-field appearance="fill">-->
-<!--    <mat-label>Analysts</mat-label>-->
-<!--    <select matNativeControl formControlName='analysts'>-->
-<!--      <option *ngFor="let analyst of listAnalysts"-->
-<!--              [value]="analyst.id">{{analyst.name}}</option>-->
-<!--    </select>-->
-<!--  </mat-form-field>-->
-
-    <mat-form-field appearance="fill">
-      <mat-label>Analysts</mat-label>
-      <select matNativeControl formControlName='analysts'>
-        <option *ngFor="let analyst of listAnalysts"
-                [value]="analyst.id">{{analyst.name}}</option>
-      </select>
-    </mat-form-field>
-
+  <mat-form-field appearance="fill">
+    <mat-label>Analysts</mat-label>
+    <mat-chip-list #chipList multiple>
+      <mat-chip *ngFor="let analyst of selectedAnalysts"
+        (removed)="onAnalystRemove(analyst)">
+        {{analyst.name}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="Select Analyst..."
+        #analystInput
+        [matAutocomplete]="auto"
+        [matChipInputAddOnBlur]="true"
+        [matChipInputFor]="chipList">
+    </mat-chip-list>
+    <mat-autocomplete #auto (optionSelected)="onAnalystAdd($event.option.value)">
+      <mat-option *ngFor="let analyst of availableAnalysts" [value]="analyst">
+        {{analyst.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Sector</mat-label>
     <select matNativeControl formControlName='sector'>
-      <option *ngFor="let sector of listSectors"
+      <option *ngFor="let sector of allSectors"
               [value]="sector.id">{{sector.name}}</option>
     </select>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Market Cup</mat-label>
+    <mat-label>Market Capitalization</mat-label>
     <input matInput formControlName="marketCap">
   </mat-form-field>
 

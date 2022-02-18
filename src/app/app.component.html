@@ -1,15 +1,21 @@
 
-<h1>
-  <mat-toolbar  color="primary" >
-    <span>Company Analyst</span>
-  </mat-toolbar>
-</h1>
+<div class="wrapper">
 
-<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-  <mat-button-toggle routerLink="/companies" routerLinkActive="active" value="italic">Companies</mat-button-toggle>
-  <mat-button-toggle routerLink="/analysts" routerLinkActive="active"  value="bold">Analysts</mat-button-toggle>
+  <h1>
+    <mat-toolbar  color="primary" >
+      <span>Company Analyst</span>
+    </mat-toolbar>
+  </h1>
 
-</mat-button-toggle-group>
+  <div class="mat-button-wrapper">
+    <mat-button-toggle-group >
+      <mat-button-toggle routerLink="/companies" routerLinkActive="active" value="italic">Companies</mat-button-toggle>
+      <mat-button-toggle routerLink="/analysts" routerLinkActive="active"  value="bold">Analysts</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
 
-<router-outlet></router-outlet>
+  <div class="router-wrapper" >
+    <router-outlet></router-outlet>
+  </div>
 
+</div>

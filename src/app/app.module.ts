@@ -18,6 +18,12 @@ import {AnalystDialogContentComponent } from './components/analyst-dialog-conten
 import {HttpClientModule} from "@angular/common/http";
 import {StyleDirective} from "./directives/style.directive";
 import {MatIconModule} from "@angular/material/icon";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { NumericListPipe } from './pipes/numeric-list.pipe';
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
+
 
 
 @NgModule({
@@ -27,7 +33,9 @@ import {MatIconModule} from "@angular/material/icon";
     AnalystsComponent,
     CompanyDialogContentComponent,
     AnalystDialogContentComponent,
-    StyleDirective
+    StyleDirective,
+    NumericListPipe,
+
 
   ],
   imports: [
@@ -44,7 +52,11 @@ import {MatIconModule} from "@angular/material/icon";
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatSortModule,
+    MatPaginatorModule
 
   ],
   providers: [],

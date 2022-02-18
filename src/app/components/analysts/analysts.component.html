@@ -1,5 +1,5 @@
 
-<button  mat-raised-button (click)="onAddAnalyst()">Add Analyst</button>
+<button  mat-raised-button (click)="onAddAnalyst()"[color]="'primary'">Add Analyst</button>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -10,7 +10,7 @@
 
   <ng-container matColumnDef="companies">
     <th mat-header-cell *matHeaderCellDef> Companies </th>
-    <td mat-cell *matCellDef="let element"> {{element.companies}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.companies | numericList}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

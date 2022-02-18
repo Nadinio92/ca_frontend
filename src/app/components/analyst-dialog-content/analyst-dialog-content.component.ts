@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Company} from "../../model/company";
 import {CompanyService} from "../../services/company.service";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Analyst} from "../../model/analyst";
 import {SectorService} from "../../services/sector.service";
 import {Sector} from "../../model/sector";
+import {AnalystModify} from "../../model/analyst-modify";
 
 @Component({
   selector: 'app-analyst-dialog-content',
@@ -35,25 +36,11 @@ export class AnalystDialogContentComponent implements OnInit {
     this.sectorService.getSectors().subscribe(sectors=> {
       this.listSectors = sectors;
     })
-
-
-    ///////////////
-
-    var myObj = {
-      name: 'Sergey',
-      age: 15,
-      marketCap : {
-        name: 'Market Cap Name',
-        finance: 99.9
-      }
-    };
-
-
   }
 
   onSave() {
       const dialogResult = this.analystFormGroup.getRawValue();
-      let analyst : Analyst =  {
+      let analyst : AnalystModify =  {
         name: dialogResult.name,
         companies: [dialogResult.companies]
       };

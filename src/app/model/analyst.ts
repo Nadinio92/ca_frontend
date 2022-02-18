@@ -1,5 +1,5 @@
 export interface Analyst {
-    id?: number;
+    id: number;
     name: string;
     companies: string [];
 }

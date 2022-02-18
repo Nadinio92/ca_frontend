@@ -9,3 +9,17 @@ mat-button-toggle {
   flex-direction: row;
   display: flex;
 }
+
+.mat-button-wrapper {
+  padding: 5px;
+}
+
+.active {
+  background-color: #bbbbde;
+}
+
+.router-wrapper {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
