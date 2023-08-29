@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {AnalystModify} from "../model/analyst-modify";
+import {CompanyModify} from "../model/company-modify";
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,18 @@ export class AnalystService {
   public addAnalyst(a:AnalystModify): Observable<number>{
     return this.http.post<number>(this.baseUrl, a)
   }
+
+  public deleteAnalyst(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.baseUrl}/${id}`);
+  }
+
+  public updateAnalyst(c: AnalystModify): Observable<number> {
+    return this.http.put<number>(this.baseUrl, c)
+  }
+
+  getAnalystForUpdate(id: number) : Observable<AnalystModify> {
+    return this.http.get<AnalystModify>(`${this.baseUrl}/${id}`);
+  }
+
+
 }

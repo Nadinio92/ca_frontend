@@ -49,12 +49,12 @@ export class CompaniesComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe( _ => this.loadCompanies());
   }
 
-  onAddCompanyClick() {
-    this.openDialogForCompanyCreateOrUpdate(null);
-  }
-
   onCompanyEditClick(companyId : number) {
     this.openDialogForCompanyCreateOrUpdate(companyId);
+  }
+
+  onCompanyAddClick() {
+    this.openDialogForCompanyCreateOrUpdate(null);
   }
 
   private openDialogForCompanyCreateOrUpdate(companyId: number | null) {

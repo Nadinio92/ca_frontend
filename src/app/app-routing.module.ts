@@ -6,8 +6,9 @@ import {AnalystsComponent} from "./components/analysts/analysts.component";
 
 
 
+
   const routes: Routes = [
-    { path: 'analysts', component: AnalystsComponent },
+    { path: 'analysts', component: AnalystsComponent, },
     { path: 'companies', component: CompaniesComponent },
     { path: '', redirectTo: '/companies', pathMatch: 'full' },
 

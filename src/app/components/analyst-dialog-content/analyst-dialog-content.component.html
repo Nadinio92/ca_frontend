@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Adding new Analyst</h2>
+<h2 mat-dialog-title>New Analyst</h2>
 
 <div [formGroup]="analystFormGroup">
 
@@ -7,12 +7,29 @@
     <input matInput formControlName="name">
   </mat-form-field>
 
+
   <mat-form-field appearance="fill">
     <mat-label>Companies</mat-label>
-    <select matNativeControl formControlName='companies'>
-      <option *ngFor="let company of listCompanies"
-              [value]="company.id">{{company.name}}</option>а
-    </select>
+    <mat-chip-list #chipList multiple>
+      <mat-chip *ngFor="let company of selectedCompanies"
+                (removed)="onCompanyRemove(company)">
+        {{company.name}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="Select Companies..."
+        #companyInput
+        [matAutocomplete]="auto"
+        [matChipInputAddOnBlur]="true"
+        [matChipInputFor]="chipList">
+    </mat-chip-list>
+    <mat-autocomplete #auto (optionSelected)="onCompanyAdd($event.option.value)">
+      <mat-option *ngFor="let company of availableCompanies" [value]="company">
+        {{company.name}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
 
 </div>

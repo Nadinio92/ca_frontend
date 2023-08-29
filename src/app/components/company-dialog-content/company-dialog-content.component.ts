@@ -24,6 +24,7 @@ export class CompanyDialogContentComponent implements OnInit {
     analysts: new FormControl(''),
     marketCap: new FormControl(''),
     sector: new FormControl('')
+
   });
 
   private allAnalysts: Analyst[] = [];
